@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=inputFile
+comment0.target=void\ setOutputFile(java.lang.String)
+comment1.params=
+comment1.target=void\ write()
+comment2.params=sheet
+comment2.target=void\ createLabel(jxl.write.WritableSheet)
+comment3.params=sheet
+comment3.target=void\ createContent(jxl.write.WritableSheet)
+comment4.params=sheet\ column\ row\ s
+comment4.target=void\ addCaption(jxl.write.WritableSheet,\ int,\ int,\ java.lang.String)
+comment5.params=sheet\ column\ row\ integer
+comment5.target=void\ addNumber(jxl.write.WritableSheet,\ int,\ int,\ java.lang.Integer)
+comment6.params=sheet\ column\ row\ s
+comment6.target=void\ addLabel(jxl.write.WritableSheet,\ int,\ int,\ java.lang.String)
+comment7.params=args
+comment7.target=void\ main(java.lang.String[])
+numComments=8

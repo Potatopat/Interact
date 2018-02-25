@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=fileName\ cells
+comment0.target=WriteExcel(java.lang.String,\ java.lang.String[][])
+comment1.params=fileName\ student\ id\ name
+comment1.target=WriteExcel(java.lang.String,\ ReadExcel,\ java.lang.String,\ java.lang.String)
+comment10.params=name\ ID\ rows\ student
+comment10.target=void\ addNew(java.lang.String,\ int,\ int,\ ReadExcel)
+comment2.params=fileName\ student\ start
+comment2.target=WriteExcel(java.lang.String,\ ReadExcel,\ boolean)
+comment2.text=public\ WriteExcel(String\ fileName,\ int\ columns,\ String\ date)\ throws\ IOException,\ WriteException\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ this.fileName\ \=\ fileName;\r\n\ \ \ \ \ \ \ \ this.date\ \=\ date;\r\n\ \ \ \ \ \ \ \ this.columns\ \=\ columns;\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ /*try\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ workbook\ \=\ Workbook.createWorkbook(new\ File("xl1.xls"),\ student.getWorkbook());\ \ \ //fix\r\n\ \ \ \ \ \ \ \ \ \ \ \ workbook.createSheet("Sheet\ 1",\ 0);\r\n\ \ \ \ \ \ \ \ \ \ \ \ sheet1\ \=\ workbook.getSheet(0);\r\n\ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ \ \ \ \ WritableCell\ cell;\r\n\ \ \ \ \ \ \ \ \ \ \ \ Label\ day\ \=\ new\ Label(columns,\ 0,\ date);\r\n\ \ \ \ \ \ \ \ \ \ \ \ cell\ \=\ (WritableCell)day;\r\n\ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ \ \ \ \ sheet1.addCell(cell);\r\n\ \ \ \ \ \ \ \ \ \ \ \ workbook.write();\r\n\ \ \ \ \ \ \ \ \ \ \ \ workbook.close();\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ catch\ (Exception\ e)\ {}*\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ file\ \=\ new\ File("xl1.xls");\r\n\ \ \ \ \ \ \ \ wbSettings\ \=\ new\ WorkbookSettings();\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ wbSettings.setLocale(new\ Locale("en",\ "EN"));\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ workbook\ \=\ Workbook.createWorkbook(file,\ wbSettings);\r\n\ \ \ \ \ \ \ \ workbook.createSheet("Sheet\ 1",\ 0);\r\n\ \ \ \ \ \ \ \ excelSheet\ \=\ workbook.getSheet(0);\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ times.setWrap(false);\r\n\ \ \ \ \ \ \ \ cv.setFormat(times);\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ for\ (int\ c\ \=\ 0;\ c\ <\ student.getColumns();\ c++)\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ for\ (int\ r\ \=\ 0;\ r\ <\ student.getRows();\ r++)\r\n\ \ \ \ \ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (c\ \=\=\ student.getDayColumn()\ &&\ r\ \=\=\ student.getNameRow())\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ addNumber(excelSheet,\ c,\ r,\ 1);\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ else\ if\ (r\ >\=\ 1\ &&\ (c\ \=\=\ 0\ ||\ c\ >\=\ 2)\ &&\ \!student.getCells(c,\ r).equals(""))\ \ \ //if\ it's\ supposed\ to\ be\ a\ number\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ addNumber(excelSheet,\ c,\ r,\ Integer.parseInt(student.getCells(c,\ r)));\ \ //"addNumber"\ doesn't\ allow\ me\ to\ open\ excel,\ changed\ to\ "addLabel"\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ else\ addLabel(excelSheet,\ c,\ r,\ student.getCells(c,\ r));\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ addLabel(excelSheet,\ columns,\ 0,\ date);\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ workbook.write();\r\n\ \ \ \ \ \ \ \ workbook.close();\r\n\ \ \ \ \ \ \ \ student.doExcel();\r\n}
+comment3.params=sheet
+comment3.target=void\ createContent(jxl.write.WritableSheet)
+comment3.text=public\ void\ write()\ throws\ IOException,\ WriteException\ {\r\n\ \ \ \ \ \ \ \ //File\ file\ \=\ new\ File(fileName);\r\n\ \ \ \ \ \ \ \ File\ file\ \=\ new\ File("xl1.xls");\r\n\ \ \ \ \ \ \ \ WorkbookSettings\ wbSettings\ \=\ new\ WorkbookSettings();\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ wbSettings.setLocale(new\ Locale("en",\ "EN"));\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ workbook\ \=\ Workbook.createWorkbook(file,\ wbSettings);\r\n\ \ \ \ \ \ \ \ workbook.createSheet("Sheet\ 1",\ 0);\r\n\ \ \ \ \ \ \ \ WritableSheet\ excelSheet\ \=\ workbook.getSheet(0);\r\n\ \ \ \ \ \ \ \ createContent(excelSheet);\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ workbook.write();\r\n\ \ \ \ \ \ \ \ workbook.close();\r\n}
+comment4.params=sheet\ column\ row\ s
+comment4.target=void\ addCaption(jxl.write.WritableSheet,\ int,\ int,\ java.lang.String)
+comment5.params=sheet\ column\ row\ integer
+comment5.target=void\ addNumber(jxl.write.WritableSheet,\ int,\ int,\ java.lang.Integer)
+comment6.params=sheet\ column\ row\ s
+comment6.target=void\ addLabel(jxl.write.WritableSheet,\ int,\ int,\ java.lang.String)
+comment7.params=sheet\ column\ row\ integer
+comment7.target=void\ addDate(jxl.write.WritableSheet,\ int,\ int,\ java.lang.Integer)
+comment8.params=columns\ date
+comment8.target=void\ newDate(int,\ java.lang.String)
+comment9.params=sheet\ row
+comment9.target=void\ tallyPoints(jxl.write.WritableSheet,\ int)
+numComments=11
